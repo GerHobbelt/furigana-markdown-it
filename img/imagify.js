@@ -1,26 +1,26 @@
 try {
-  const root = require("child_process")
-    .execSync("npm root -g")
+  const root = require('child_process')
+    .execSync('npm root -g')
     .toString()
     .trim();
-  var puppeteer = require(root + "/puppeteer");
+  var puppeteer = require(root + '/puppeteer');
 } catch (err) {
   console.error(
-    `Install puppeteer globally first with: npm install -g puppeteer`
+    'Install puppeteer globally first with: npm install -g puppeteer'
   );
   process.exit(1);
 }
 
-const html = require("fs")
-  .readFileSync("examples.html", { encoding: "utf8" })
-  .split("\n");
+const html = require('fs')
+  .readFileSync('examples.html', { encoding: 'utf8' })
+  .split('\n');
 
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   for (let i = 0; i < html.length; i++) {
-    if (html[i] == "") {
+    if (html[i] === '') {
       continue;
     }
 
@@ -33,7 +33,7 @@ const html = require("fs")
       if (!element) return null;
       const { x, y, width, height } = element.getBoundingClientRect();
       return { left: x, top: y, width, height, id: element.id };
-    }, "div");
+    }, 'div');
 
     await page.screenshot({
       path: `${i + 1}.png`,

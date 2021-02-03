@@ -1,7 +1,8 @@
-"use strict";
 
-module.exports = function(options) {
-  return function(md) {
-    md.inline.ruler.push("furigana", require("./lib/furigana")(options));
+import fugirana from './lib/furigana.js';
+
+export default function (options) {
+  return function (md) {
+    md.inline.ruler.push('furigana', fugirana(options));
   };
-};
+}
