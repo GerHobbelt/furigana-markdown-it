@@ -4,7 +4,7 @@ import assert from 'assert';
 import markdown_it from '@gerhobbelt/markdown-it';
 import plugin from '../index.js';
 
-const md = markdown_it().use(plugin);
+const md = markdown_it().use(plugin());
 
 describe('ruby', function () {
   it('should parse basic [body]{toptext}', function () {
