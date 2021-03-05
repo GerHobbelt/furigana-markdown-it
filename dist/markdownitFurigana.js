@@ -1,4 +1,4 @@
-/*! markdown-it-furigana 1.0.3-4 https://github.com//GerHobbelt/markdown-it-furigana @license MIT */
+/*! markdown-it-furigana 1.1.0-6 https://github.com//GerHobbelt/markdown-it-furigana @license MIT */
 
 /**
  * Parses the [body]{toptext} syntax and returns
