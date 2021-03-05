@@ -4,7 +4,7 @@ import assert from 'assert';
 import markdown_it from '@gerhobbelt/markdown-it';
 import plugin from '../index.js';
 
-const md = markdown_it().use(plugin());
+const md = markdown_it().use(plugin);
 
 describe('ruby', function () {
   it('should parse basic [body]{toptext}', function () {
@@ -215,8 +215,7 @@ describe('emphasis dots', function () {
 
 describe('options', function () {
   it('should allow custom fallback parentheses', function () {
-    let md = markdown_it().use(plugin({ fallbackParens: '()' })
-    );
+    let md = markdown_it().use(plugin, { fallbackParens: '()' });
 
     assert.equal(
       md.renderInline('[漢字]{かんじ}'),
@@ -225,8 +224,7 @@ describe('options', function () {
   });
 
   it('should allow adding extra separators', function () {
-    let md = markdown_it().use(plugin({ extraSeparators: '_-\\]' })
-    );
+    let md = markdown_it().use(plugin, { extraSeparators: '_-\\]' });
 
     assert.equal(
       md.renderInline('[犬犬犬犬犬犬犬]{いぬ.いぬ。いぬ_いぬ-いぬ\\いぬ]いぬ}'),
@@ -235,8 +233,7 @@ describe('options', function () {
   });
 
   it('should allow adding extra combinators', function () {
-    let md = markdown_it().use(plugin({ extraCombinators: '*' })
-    );
+    let md = markdown_it().use(plugin, { extraCombinators: '*' });
 
     assert.equal(
       md.renderInline('[可愛い犬]{か+わい.い.いぬ}'),

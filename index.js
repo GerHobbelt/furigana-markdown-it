@@ -1,8 +1,6 @@
 
 import fugirana from './lib/furigana.js';
 
-export default function (options) {
-  return function (md) {
-    md.inline.ruler.push('furigana', fugirana(options));
-  };
+export default function (md, options) {
+  md.inline.ruler.push('furigana', fugirana(options));
 }

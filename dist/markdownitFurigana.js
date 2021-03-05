@@ -446,10 +446,8 @@ function process(state, silent, options) {
   return true;
 }
 
-function index (options) {
-  return function (md) {
-    md.inline.ruler.push('furigana', furigana(options));
-  };
+function index (md, options) {
+  md.inline.ruler.push('furigana', furigana(options));
 }
 
 export default index;
